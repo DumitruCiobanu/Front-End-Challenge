@@ -1,3 +1,5 @@
+//steps 2-4
+
 const buttons = document.getElementsByTagName('button');
 
 for (let i = 0; i < buttons.length; i++) {
@@ -19,4 +21,42 @@ for (let i = 0; i < buttons.length; i++) {
     this.classList.remove("released");
     }, 60000); 
 }); 
+}
+
+//step 5
+
+const elements = document.querySelectorAll('.clickable');
+const pressedKeys = [];
+
+elements.forEach((element) => {
+  element.addEventListener('click', handleClick);
+});
+
+function handleClick(event) {
+  const clickedElement = event.target;
+  pressedKeys.push(clickedElement.innerHTML);
+  console.log(pressedKeys);
+}
+
+
+const repeatBtn = document.getElementById('repeat-btn');
+repeatBtn.addEventListener('click', repeatPressedKeys);
+
+function repeatPressedKeys() {
+  let i = 0;
+  const interval = setInterval(() => {
+    if (i >= pressedKeys.length) {
+      clearInterval(interval);
+      return;
+    }
+    const keyToPress = pressedKeys[i];
+    const matchingButton = Array.from(buttons).find(btn => btn.innerHTML === keyToPress);
+    if (matchingButton) {
+      matchingButton.classList.add('released');
+      setTimeout(() => {
+        matchingButton.classList.remove('released');
+      }, 60000);
+    }
+    i++;
+  }, 200);
 }
