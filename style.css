@@ -59,6 +59,7 @@ button.pressed{
 .repeat-btn{
     color: #fff;
     margin-top: -48.5px;
+    cursor: pointer;
     
 }
 
