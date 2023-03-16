@@ -19,7 +19,7 @@ for (let i = 0; i < buttons.length; i++) {
 
   setTimeout(() => {
     this.classList.remove("released");
-    }, 60000); 
+    }, 1000); 
 }); 
 }
 
@@ -55,7 +55,7 @@ function repeatPressedKeys() {
       matchingButton.classList.add('released');
       setTimeout(() => {
         matchingButton.classList.remove('released');
-      }, 60000);
+      }, 1000);
     }
     i++;
   }, 200);
