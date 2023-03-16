@@ -19,7 +19,7 @@ for (let i = 0; i < buttons.length; i++) {
 
   setTimeout(() => {
     this.classList.remove("released");
-    }, 1000); 
+    }, 4000); 
 }); 
 }
 
